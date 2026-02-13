@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  mongodb:
+    build: .
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - mongo_net
+
+  mongo-tools:
+    image: mongo:7.0
+    container_name: mongo-tools
+    depends_on:
+      - mongodb
+    entrypoint: ["tail", "-f", "/dev/null"]
+    networks:
+      - mongo_net
+    volumes:
+      - ./backup:/backup
+
+volumes:
+  mongo_data:
+
+networks:
+  mongo_net:
+    driver: bridge
