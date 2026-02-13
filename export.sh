@@ -3,7 +3,7 @@
 DB=$1
 USER=$2
 PASSWORD=$3
-URI="mongodb+srv://$2:$3@cluster0.0bef7.mongodb.net/$DB?authSource=admin"
+URI="mongodb+srv://$2:$3@cluster0.abcde.mongodb.net/$DB?authSource=admin"
 OUT="/backup/$DB"
 
 mkdir -p $OUT
