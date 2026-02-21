@@ -1,10 +1,11 @@
 #!/bin/sh
 
-DB=$1
-USER=$2
-PASSWORD=$3
-URI="mongodb+srv://$2:$3@cluster0.abcde.mongodb.net/$DB?authSource=admin"
-OUT="/backup/$DB"
+USER=$1
+PASSWORD=$2
+CLUSTER=$3
+DATABASE=$4
+URI="mongodb+srv://$USER:$PASSWORD@$CLUSTER/$DATABASE?authSource=admin"
+OUT="/backup/$DATABASE"
 
 mkdir -p $OUT
 
