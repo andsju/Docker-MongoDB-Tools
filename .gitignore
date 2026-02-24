@@ -1,2 +1,3 @@
+# Spåra endast en platsfil i backup/
 backup/*
 !backup/.gitkeep

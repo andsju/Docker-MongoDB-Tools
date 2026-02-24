@@ -100,6 +100,7 @@ In terminal run following command
 
 ```bash
 docker cp export.sh mongo-tools:/export.sh
+docker exec mongo-tools sh -c "sed -i 's/\r$//' /export.sh"
 docker exec mongo-tools sh /export.sh  <user> <password> <cluster> <database>
 ```
 
@@ -112,6 +113,7 @@ Example
 
 ```bash
 docker cp export.sh mongo-tools:/export.sh
+docker exec mongo-tools sh -c "sed -i 's/\r$//' /export.sh"
 docker exec mongo-tools sh /export.sh dbuser qwerty123 cluster0.abcde.mongodb.net dbApp
 ```
 
@@ -151,6 +153,7 @@ In terminal run following command:
 
 ```bash
 docker cp import.sh mongo-tools:/import.sh
+docker exec mongo-tools sh -c "sed -i 's/\r$//' /import.sh"
 docker exec mongo-tools sh /import.sh  <user> <password> <cluster> <database>
 ```
 
@@ -163,5 +166,6 @@ Example
 
 ```bash
 docker cp import.sh mongo-tools:/import.sh
+docker exec mongo-tools sh -c "sed -i 's/\r$//' /import.sh"
 docker exec mongo-tools sh /import.sh dbuser qwerty123 cluster0.abcde.mongodb.net dbApp
 ```
